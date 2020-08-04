@@ -1,0 +1,30 @@
+$colorWhite: #fff;
+$colorRed: #f45;
+$colorBlue: #09f;
+$colorGreen: #42b983;
+$colorYellow: #ffb700;
+$colorOrange: #ed6c00;
+$colorGrayV3: #333;
+$colorGrayV6: #666;
+$colorGrayV9: #999;
+$colorGrayVa: #aaa;
+$colorGrayVb: #bbb;
+$colorGrayVc: #ccc;
+$colorGrayVd: #ddd;
+$colorGrayVe: #eee;
+$colorGrayVf8: #f8f8f8;
+$colorGrayVfa: #fafafa;
+
+$border: 1px solid #ddd;
+
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+    background: $colorGrayVe;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $colorGrayVc;
+  }
+}

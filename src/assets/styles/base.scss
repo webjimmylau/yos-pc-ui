@@ -1,0 +1,101 @@
+body {
+  min-width: 1194px;
+  font: 12px/1.5 Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \5b8b\4f53, sans-serif;
+  color: $colorGrayV6;
+  background: $colorWhite;
+  @include scrollBar;
+}
+
+article, aside, footer, header, nav, section, div {
+  box-sizing: border-box;
+}
+
+ul, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+li {
+  list-style: none;
+  outline: none;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  &:active,
+  &:hover {
+    outline: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+  &:hover {
+    color: $colorBlue;
+  }
+}
+
+img {
+  outline: none;
+  vertical-align: bottom;
+}
+
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: 0;
+  outline: none;
+  &::-moz-placeholder {
+    opacity: 1;
+    color: $colorGrayVc;
+  }
+  &:-ms-input-placeholder {
+    color: $colorGrayVc;
+  }
+  &::-webkit-input-placeholder {
+    color: $colorGrayVc;
+  }
+  &::-moz-clear {
+    display: none;
+  }
+  &::-webkit-clear {
+    display: none;
+  }
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+table {
+  th, td {
+    text-align: left;
+    vertical-align: middle;
+  }
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  box-sizing: border-box;
+  content: " ";
+}
+
+.float-l {
+  float: left;
+}
+
+.float-r {
+  float: right;
+}
