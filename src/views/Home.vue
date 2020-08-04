@@ -1,5 +1,16 @@
 <template>
   <div class="home">
-    home page
+    Home Page
   </div>
 </template>
+
+<script>
+export default {
+  name: "home"
+};
+</script>
+
+<style>
+.home {
+}
+</style>

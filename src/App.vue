@@ -3,7 +3,8 @@
     <div id="nav">
       <div class="wrap">
         <router-link to="/">Home</router-link>
-        <router-link to="/demo">Demo</router-link>
+        <router-link to="/common">Common</router-link>
+        <router-link to="/public">Public</router-link>
       </div>
     </div>
     <div id="container" class="wrap">
