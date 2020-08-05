@@ -61,7 +61,20 @@
       </c-box>
     </c-box>
     <c-box title="文字按钮 c-text-button" class="c-box">
-      <c-text-button />
+      <c-box title="主题 theme">
+        <c-text-button theme="default">default</c-text-button>
+        <c-text-button theme="primary">primary</c-text-button>
+        <c-text-button theme="success">success</c-text-button>
+        <c-text-button theme="warn">warn</c-text-button>
+        <c-text-button theme="error">error</c-text-button>
+      </c-box>
+      <c-box title="禁用 disabled">
+        <c-text-button disabled>disabled</c-text-button>
+      </c-box>
+      <c-box title="点击 click">
+        <c-text-button to="/">url</c-text-button>
+        <c-text-button @click="textButtonClick('参数')">click</c-text-button>
+      </c-box>
     </c-box>
     <c-box title="表格 c-table" class="c-box">
       <c-table />
@@ -101,6 +114,9 @@ export default {
   },
   methods: {
     buttonClick(params) {
+      alert(params);
+    },
+    textButtonClick(params) {
       alert(params);
     }
   }
