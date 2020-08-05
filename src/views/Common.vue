@@ -1,7 +1,9 @@
 <template>
   <div class="common">
     <c-box title="选项卡 c-tab" class="c-box">
-      <c-tab />
+      <c-tab :data="tabData">
+        <c-button>新增xxx</c-button>
+      </c-tab>
     </c-box>
     <c-box title="表单 c-form" class="c-box">
       <c-box title="输入框 input">
@@ -49,7 +51,25 @@
 
 <script>
 export default {
-  name: "common"
+  name: "common",
+  data() {
+    return {
+      tabData: [
+        {
+          title: "选项1",
+          url: "/common?status=1"
+        },
+        {
+          title: "选项2",
+          url: "/common?status=2"
+        },
+        {
+          title: "选项3",
+          url: "/common?status=3"
+        }
+      ]
+    };
+  }
 };
 </script>
 
