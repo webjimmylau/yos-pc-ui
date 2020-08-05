@@ -28,7 +28,7 @@ export default {
     z-index: 9;
     a {
       display: block;
-      padding: 0 15px;
+      padding: 0 15px 1px 15px;
       line-height: 30px;
       background: $colorGrayVfa;
       border: $border;

@@ -36,6 +36,14 @@
   overflow: hidden;
 }
 
+.border-radius-2{
+  border-radius: 2px;
+}
+
+.border-radius-full{
+  border-radius: 100%;
+}
+
 // position
 
 .position-rel {
@@ -122,10 +130,6 @@
 
 // color
 
-.color-red {
-  color: $colorRed;
-}
-
 .color-blue {
   color: $colorBlue;
 }
@@ -140,6 +144,10 @@
 
 .color-orange {
   color: $colorOrange;
+}
+
+.color-red {
+  color: $colorRed;
 }
 
 .color-gray-v3 {

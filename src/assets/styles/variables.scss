@@ -1,9 +1,9 @@
 $colorWhite: #fff;
-$colorRed: #f45;
 $colorBlue: #09f;
 $colorGreen: #42b983;
-$colorYellow: #ffb700;
+$colorYellow: #efb90f;
 $colorOrange: #ed6c00;
+$colorRed: #ff5231;
 $colorGrayV3: #333;
 $colorGrayV6: #666;
 $colorGrayV9: #999;
@@ -27,4 +27,8 @@ $border: 1px solid #ddd;
   &::-webkit-scrollbar-thumb {
     background: $colorGrayVc;
   }
+}
+
+@mixin border-radius-2 {
+  border-radius: 2px
 }
