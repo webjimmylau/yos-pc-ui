@@ -36,12 +36,9 @@
   overflow: hidden;
 }
 
-.border-radius-2{
-  border-radius: 2px;
-}
-
-.border-radius-full{
-  border-radius: 100%;
+.item-middle {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 // position
@@ -118,6 +115,10 @@
 
 .line-height-18 {
   line-height: 18px;
+}
+
+.line-height-32 {
+  line-height: 32px;
 }
 
 .line-height-1 {

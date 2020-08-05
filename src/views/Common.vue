@@ -19,7 +19,28 @@
         <c-checkbox />
       </c-box>
       <c-box title="开关 c-switch">
-        <c-switch />
+        <c-switch :val.sync="formData.switchBooleanVal" />
+        <span class="item-middle margin-l-5">
+          {{ formData.switchBooleanVal }}
+        </span>
+        <c-switch
+          class="margin-l-20"
+          :val.sync="formData.switchNumberVal"
+          :valTrue="10"
+          :valFalse="20"
+        />
+        <span class="item-middle margin-l-5">
+          {{ formData.switchNumberVal }}
+        </span>
+        <c-switch
+          class="margin-l-20"
+          :val.sync="formData.switchStringVal"
+          valTrue="是"
+          valFalse="否"
+        />
+        <span class="item-middle margin-l-5">
+          {{ formData.switchStringVal }}
+        </span>
       </c-box>
       <c-box title="下拉菜单 c-select">
         <c-select />
@@ -96,6 +117,11 @@ export default {
   name: "common",
   data() {
     return {
+      formData: {
+        switchBooleanVal: false,
+        switchNumberVal: 20,
+        switchStringVal: "否"
+      },
       tabData: [
         {
           title: "选项1",
