@@ -13,34 +13,54 @@
         <c-textarea />
       </c-box>
       <c-box title="单选框 c-radio">
-        <c-radio />
+        <div>id: {{ radioId }}</div>
+        <div class="font-0 margin-t-10">
+          <c-radio
+            v-for="(item, index) in radioData"
+            :key="index"
+            :val.sync="radioId"
+            :valCurrent="item.id"
+            class="margin-r-20"
+            :disabled="item.id === 40"
+          >
+            {{ item.name }}
+          </c-radio>
+        </div>
       </c-box>
       <c-box title="复选框 c-checkbox">
         <c-checkbox />
       </c-box>
       <c-box title="开关 c-switch">
-        <c-switch :val.sync="formData.switchBooleanVal" />
-        <span class="item-middle margin-l-5">
-          {{ formData.switchBooleanVal }}
-        </span>
-        <c-switch
-          class="margin-l-20"
-          :val.sync="formData.switchNumberVal"
-          :valTrue="10"
-          :valFalse="20"
-        />
-        <span class="item-middle margin-l-5">
-          {{ formData.switchNumberVal }}
-        </span>
-        <c-switch
-          class="margin-l-20"
-          :val.sync="formData.switchStringVal"
-          valTrue="是"
-          valFalse="否"
-        />
-        <span class="item-middle margin-l-5">
-          {{ formData.switchStringVal }}
-        </span>
+        <div class="font-0">
+          <c-switch :val.sync="formData.switchBooleanVal" class="margin-r-20">
+            {{ formData.switchBooleanVal }} Boolean
+          </c-switch>
+          <c-switch
+            :val.sync="formData.switchNumberVal"
+            :valTrue="10"
+            :valFalse="20"
+            class="margin-r-20"
+          >
+            {{ formData.switchNumberVal }} Number
+          </c-switch>
+          <c-switch
+            :val.sync="formData.switchStringVal"
+            valTrue="是"
+            valFalse="否"
+            class="margin-r-20"
+          >
+            {{ formData.switchStringVal }} String
+          </c-switch>
+          <c-switch
+            :val.sync="formData.switchStringVal"
+            valTrue="是"
+            valFalse="否"
+            class="margin-r-20"
+            disabled
+          >
+            {{ formData.switchStringVal }} String disabled
+          </c-switch>
+        </div>
       </c-box>
       <c-box title="下拉菜单 c-select">
         <c-select />
@@ -51,28 +71,36 @@
     </c-box>
     <c-box title="按钮 c-button" class="c-box">
       <c-box title="主题 theme">
-        <c-button>default</c-button>
-        <c-button theme="primary">primary</c-button>
-        <c-button theme="success">success</c-button>
-        <c-button theme="warn">warn</c-button>
-        <c-button theme="error">error</c-button>
-        <c-button theme="primary-border">primary-border</c-button>
-        <c-button theme="success-border">success-border</c-button>
-        <c-button theme="warn-border">warn-border</c-button>
-        <c-button theme="error-border">error-border</c-button>
+        <c-button class="margin-r-10">default</c-button>
+        <c-button class="margin-r-10" theme="primary">primary</c-button>
+        <c-button class="margin-r-10" theme="success">success</c-button>
+        <c-button class="margin-r-10" theme="warn">warn</c-button>
+        <c-button class="margin-r-10" theme="error">error</c-button>
+        <c-button class="margin-r-10" theme="primary-border">
+          primary-border
+        </c-button>
+        <c-button class="margin-r-10" theme="success-border">
+          success-border
+        </c-button>
+        <c-button class="margin-r-10" theme="warn-border">
+          warn-border
+        </c-button>
+        <c-button class="margin-r-10" theme="error-border">
+          error-border
+        </c-button>
       </c-box>
       <c-box title="大小 size">
-        <c-button size="large">large</c-button>
-        <c-button>default</c-button>
-        <c-button size="small">small</c-button>
-        <c-button size="mini">mini</c-button>
+        <c-button class="margin-r-10" size="large">large</c-button>
+        <c-button class="margin-r-10">default</c-button>
+        <c-button class="margin-r-10" size="small">small</c-button>
+        <c-button class="margin-r-10" size="mini">mini</c-button>
       </c-box>
       <c-box title="禁用 disabled">
         <c-button disabled>disabled</c-button>
       </c-box>
       <c-box title="宽度 width">
-        <c-button :width="200">200px</c-button>
-        <c-button :width="400">400px</c-button>
+        <c-button class="margin-r-10" :width="200">200px</c-button>
+        <c-button class="margin-r-10" :width="400">400px</c-button>
       </c-box>
       <c-box title="宽度100% long">
         <c-button long>long</c-button>
@@ -119,7 +147,7 @@ export default {
     return {
       formData: {
         switchBooleanVal: false,
-        switchNumberVal: 20,
+        switchNumberVal: 10,
         switchStringVal: "否"
       },
       tabData: [
@@ -135,7 +163,26 @@ export default {
           title: "选项3",
           url: "/common?status=3"
         }
-      ]
+      ],
+      radioData: [
+        {
+          name: "语文",
+          id: 10
+        },
+        {
+          name: "数学",
+          id: 20
+        },
+        {
+          name: "英语",
+          id: 30
+        },
+        {
+          name: "政治",
+          id: 40
+        }
+      ],
+      radioId: 20
     };
   },
   methods: {
@@ -150,6 +197,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.c-box {
+  border: $border;
+}
 .c-box ~ .c-box {
   margin-top: 10px;
 }
