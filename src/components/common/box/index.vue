@@ -20,13 +20,13 @@ export default {
 
 <style lang="scss" scoped>
 .box {
-  background: $colorGrayVfa;
+  background: $colorGrayVfd;
 }
 .title {
-  padding: 10px 0 10px 1em;
+  padding: 10px 1em;
   background: $colorGrayVe;
 }
 .content {
-  padding: 20px 0 20px 3em;
+  padding: 20px 3em;
 }
 </style>

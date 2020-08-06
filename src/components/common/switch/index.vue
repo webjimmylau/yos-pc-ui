@@ -1,6 +1,11 @@
 <template>
   <div class="c-switch" :class="addClass" @click="click">
-    <div class="c-switch-circle"></div>
+    <div class="c-switch-outside">
+      <div class="c-switch-within"></div>
+    </div>
+    <span class="margin-l-5 item-middle">
+      <slot></slot>
+    </span>
   </div>
 </template>
 
@@ -45,35 +50,40 @@ export default {
 <style lang="scss" scoped>
 .c-switch {
   @include item-middle;
-  position: relative;
-  width: 40px;
-  height: 20px;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  background: $colorGrayVd;
-  border: 2px solid $colorGrayVd;
-  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-  .c-switch-circle {
+  .c-switch-outside {
+    @include item-middle;
+    position: relative;
+    width: 32px;
+    height: 16px;
+    background: $colorGrayVd;
+    border: 2px solid $colorGrayVd;
+    border-radius: 8px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .c-switch-within {
     position: absolute;
     top: 0;
     left: 0;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     background: $colorWhite;
     @include border-radius-full;
     transition: left 0.2s;
   }
   &.active {
-    background: $colorBlue;
-    border-color: $colorBlue;
-    .c-switch-circle {
-      left: 20px;
+    color: $colorBlue;
+    .c-switch-outside {
+      background: $colorBlue;
+      border-color: $colorBlue;
+    }
+    .c-switch-within {
+      left: 16px;
     }
   }
   &.disabled {
     cursor: not-allowed;
+    opacity: 0.6;
   }
 }
 </style>

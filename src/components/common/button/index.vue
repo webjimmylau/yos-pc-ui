@@ -53,11 +53,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.c-button ~ .c-button {
-  margin-left: 10px;
-}
 .c-button {
-  display: inline-block;
+  @include item-middle;
   padding: 0 15px;
   line-height: 30px;
   text-align: center;
