@@ -1,5 +1,5 @@
 $colorWhite: #fff;
-$colorBlue: #09f;
+$colorBlue: #409eff;
 $colorGreen: #42b983;
 $colorYellow: #efb90f;
 $colorOrange: #ed6c00;
@@ -14,6 +14,7 @@ $colorGrayVd: #ddd;
 $colorGrayVe: #eee;
 $colorGrayVf8: #f8f8f8;
 $colorGrayVfa: #fafafa;
+$colorGrayVfd: #fdfdfd;
 
 $border: 1px solid #ddd;
 
@@ -40,4 +41,6 @@ $border: 1px solid #ddd;
 @mixin item-middle {
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
+  font-size: 12px;
 }
