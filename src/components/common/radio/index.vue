@@ -16,7 +16,7 @@ export default {
       type: [String, Number],
       required: true
     },
-    valCurrent: {
+    currentVal: {
       type: [String, Number],
       required: true
     },
@@ -28,7 +28,7 @@ export default {
   computed: {
     addClass() {
       const arr = [];
-      if (this.val === this.valCurrent) arr.push("active");
+      if (this.val === this.currentVal) arr.push("active");
       if (this.disabled) arr.push("disabled");
       return arr.join(" ");
     }
@@ -36,7 +36,7 @@ export default {
   methods: {
     click() {
       if (this.disabled) return;
-      this.$emit("update:val", this.valCurrent);
+      this.$emit("update:val", this.currentVal);
     }
   }
 };
