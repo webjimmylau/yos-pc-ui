@@ -13,13 +13,13 @@
         <c-textarea />
       </c-box>
       <c-box title="单选框 c-radio">
-        <div>id: {{ radioId }}</div>
-        <div class="font-0 margin-t-10">
+        <div class="margin-t-10">id: {{ radioVal }}</div>
+        <div class="font-0">
           <c-radio
             v-for="(item, index) in radioData"
             :key="index"
-            :val.sync="radioId"
-            :valCurrent="item.id"
+            :val.sync="radioVal"
+            :currentVal="item.id"
             class="margin-r-20"
             :disabled="item.id === 40"
           >
@@ -28,7 +28,28 @@
         </div>
       </c-box>
       <c-box title="复选框 c-checkbox">
-        <c-checkbox />
+        <div class="margin-b-10">id: {{ checkboxList }}</div>
+        <div class="font-0">
+          <c-checkbox
+            v-for="(item, index) in checkboxData"
+            :key="index"
+            :list.sync="checkboxList"
+            :currentVal="item.id"
+            class="margin-r-20"
+          >
+            {{ item.name }}
+          </c-checkbox>
+        </div>
+        <div class="font-0 margin-t-10">
+          <c-checkbox
+            :currentVal.sync="isChooseAll"
+            isBatch
+            class="margin-r-20"
+            @click="clickChooseAll"
+          >
+            全选
+          </c-checkbox>
+        </div>
       </c-box>
       <c-box title="开关 c-switch">
         <div class="font-0">
@@ -106,7 +127,7 @@
         <c-button long>long</c-button>
       </c-box>
       <c-box title="点击 click">
-        <c-button @click="buttonClick('参数')">click</c-button>
+        <c-button @click="clickButton('参数')">click</c-button>
       </c-box>
     </c-box>
     <c-box title="文字按钮 c-text-button" class="c-box">
@@ -122,7 +143,7 @@
       </c-box>
       <c-box title="点击 click">
         <c-text-button to="/">url</c-text-button>
-        <c-text-button @click="textButtonClick('参数')">click</c-text-button>
+        <c-text-button @click="clickTextButton('参数')">click</c-text-button>
       </c-box>
     </c-box>
     <c-box title="表格 c-table" class="c-box">
@@ -182,15 +203,54 @@ export default {
           id: 40
         }
       ],
-      radioId: 20
+      radioVal: 20,
+      checkboxData: [
+        {
+          name: "苹果",
+          id: 10
+        },
+        {
+          name: "香蕉",
+          id: 20
+        },
+        {
+          name: "菠萝",
+          id: 30
+        },
+        {
+          name: "葡萄",
+          id: 40
+        }
+      ],
+      checkboxList: [10, 30],
+      isChooseAll: false
     };
   },
+  computed: {
+    isChooseAllList() {
+      return this.checkboxData.length === this.checkboxList.length;
+    }
+  },
+  watch: {
+    isChooseAllList(val) {
+      this.isChooseAll = val;
+    }
+  },
   methods: {
-    buttonClick(params) {
+    clickButton(params) {
       alert(params);
     },
-    textButtonClick(params) {
+    clickTextButton(params) {
       alert(params);
+    },
+    // 全选
+    clickChooseAll() {
+      this.checkboxList = [];
+      if (this.isChooseAll) {
+        this.checkboxData.forEach(item => {
+          this.checkboxList.push(item.id);
+        });
+      }
     }
   }
 };
