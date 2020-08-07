@@ -7,13 +7,19 @@
     </c-box>
     <c-box title="表单 c-form" class="c-box">
       <c-box title="输入框 input">
-        <c-input />
+        <div class="margin-b-10">{{ inputVal }}</div>
+        <c-input
+          :val.sync="inputVal"
+          label="xxx名称"
+          prompt="20个字符以内"
+          error="已超出字符"
+        />
       </c-box>
       <c-box title="文本区域 c-textarea">
         <c-textarea />
       </c-box>
       <c-box title="单选框 c-radio">
-        <div class="margin-t-10">id: {{ radioVal }}</div>
+        <div class="margin-b-10">id: {{ radioVal }}</div>
         <div class="font-0">
           <c-radio
             v-for="(item, index) in radioData"
@@ -35,6 +41,7 @@
             :key="index"
             :list.sync="checkboxList"
             :currentVal="item.id"
+            :disabled="item.id === 40"
             class="margin-r-20"
           >
             {{ item.name }}
@@ -53,33 +60,33 @@
       </c-box>
       <c-box title="开关 c-switch">
         <div class="font-0">
-          <c-switch :val.sync="formData.switchBooleanVal" class="margin-r-20">
-            {{ formData.switchBooleanVal }} Boolean
+          <c-switch :val.sync="switchData.switchBooleanVal" class="margin-r-20">
+            {{ switchData.switchBooleanVal }} Boolean
           </c-switch>
           <c-switch
-            :val.sync="formData.switchNumberVal"
+            :val.sync="switchData.switchNumberVal"
             :valTrue="10"
             :valFalse="20"
             class="margin-r-20"
           >
-            {{ formData.switchNumberVal }} Number
+            {{ switchData.switchNumberVal }} Number
           </c-switch>
           <c-switch
-            :val.sync="formData.switchStringVal"
+            :val.sync="switchData.switchStringVal"
             valTrue="是"
             valFalse="否"
             class="margin-r-20"
           >
-            {{ formData.switchStringVal }} String
+            {{ switchData.switchStringVal }} String
           </c-switch>
           <c-switch
-            :val.sync="formData.switchStringVal"
+            :val.sync="switchData.switchStringVal"
             valTrue="是"
             valFalse="否"
             class="margin-r-20"
             disabled
           >
-            {{ formData.switchStringVal }} String disabled
+            {{ switchData.switchStringVal }} String disabled
           </c-switch>
         </div>
       </c-box>
@@ -166,11 +173,6 @@ export default {
   name: "common",
   data() {
     return {
-      formData: {
-        switchBooleanVal: false,
-        switchNumberVal: 10,
-        switchStringVal: "否"
-      },
       tabData: [
         {
           title: "选项1",
@@ -185,6 +187,7 @@ export default {
           url: "/common?status=3"
         }
       ],
+      inputVal: "xxx",
       radioData: [
         {
           name: "语文",
@@ -223,7 +226,12 @@ export default {
         }
       ],
       checkboxList: [10, 30],
-      isChooseAll: false
+      isChooseAll: false,
+      switchData: {
+        switchBooleanVal: false,
+        switchNumberVal: 10,
+        switchStringVal: "否"
+      }
     };
   },
   computed: {
